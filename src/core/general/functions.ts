@@ -110,3 +110,13 @@ export const cuuid = () => {
     str.slice(20)
   );
 };
+
+export function trimArray(arr: any[], size = 10) {
+  if (arr.length > size) {
+    let length = arr.length - size;
+    arr = arr.slice(0, size);
+    arr.push(`and ${length} more...`);
+  }
+
+  return arr;
+}
