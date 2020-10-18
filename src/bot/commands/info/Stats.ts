@@ -7,7 +7,7 @@ import { execSync } from "child_process";
 import { cpus as cpuS, totalmem, hostname, userInfo, arch } from "os";
 
 @PublicCommand("stats", {
-  aliases: ["statistics"],
+  aliases: ["statistics", "info"],
   description: { content: "Displays some general statistics" },
 })
 export default class StatsCommand extends Command {
@@ -55,7 +55,7 @@ export default class StatsCommand extends Command {
           `OS Release       : ${execSync(`cat /etc/issue`)
             .toString()
             .escapeMarkdown()}`,
-          `Uptime           : ${ms(process.uptime())
+          `Uptime           : ${ms(this.client.uptime!)
             .replace(/\*/g, "")
             .trim()}`,
           `Arch             : ${arch()}`,

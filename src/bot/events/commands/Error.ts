@@ -31,7 +31,7 @@ export default class ErrorEvent extends Listener {
         .setColor("#f55e53")
         .setDescription(
           `Something went wrong. Please report this to ${
-            (await this.client.users.fetch(`535585397435006987`)).tag
+            (await this.client.users.fetch("535585397435006987")).tag
           } or join [make an issue](https://github.com/Stereo-Developers/issues/issues)\`\`\`js\n${error}\`\`\``
         )
     );

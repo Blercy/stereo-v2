@@ -1,4 +1,4 @@
-import { API, Api } from "@core";
+import { API, Api, querystring } from "@core";
 import fetch from "node-fetch";
 
 @Api({ name: "spotify", baseUrl: "https://api.spotify.com" })
@@ -11,6 +11,12 @@ export default class Spotify extends API {
 
   public async album(id: string) {
     return this.get(`/v1/albums/${id}`);
+  }
+
+  public async search(q: string) {
+    return this.get(
+      `/v1/search?${querystring({ q: encodeURIComponent(q), type: "track," })}`
+    );
   }
 
   public async init() {
