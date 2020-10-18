@@ -1,5 +1,5 @@
 import { Command } from "discord-akairo";
-import { Message, MessageEmbed } from "discord.js";
+import { Message, MessageEmbed, VoiceChannel } from "discord.js";
 
 import { PublicCommand } from "@core";
 
@@ -18,33 +18,49 @@ export default class JoinCommand extends Command {
           .setDescription(`I'm already connected to a voice channel!`)
       );
 
-    const { channel } = message.member?.voice!;
-    if (!channel)
+    const vclock: string = this.client.settings.get(message.guild, "vclock");
+
+    let { channel } = message.member?.voice!;
+
+    if (vclock)
+      channel = message.guild!.channels.cache.get(vclock) as VoiceChannel;
+
+    if ((vclock && !channel?.members.has(message.author.id)) || !channel)
       return message.util?.send(
         new MessageEmbed()
           .setColor("#f55e53")
-          .setDescription(`Please join a voice channel.`)
+          .setDescription(
+            vclock
+              ? `Please join \`${
+                  message.guild!.channels.cache.get(vclock)!.name
+                }\``
+              : `Please join a voice channel.`
+          )
       );
 
     if (
-      !channel.joinable ||
-      !channel.permissionsFor(this.client.user!)?.has(["SPEAK", "CONNECT"])
+      !channel!.joinable ||
+      !channel!.permissionsFor(this.client.user!)?.has(["SPEAK", "CONNECT"])
     )
       return message.util?.send(
         new MessageEmbed()
           .setColor("#f55e53")
-          .setDescription(`Please join a voice channel I can join.`)
+          .setDescription(
+            vclock
+              ? `Seems that the voice channel set for Voice Channel lock is inaccessable.`
+              : `Please join a voice channel I can join.`
+          )
       );
 
     if (!player) player = this.client.lavalink.create(message.guild!.id);
-    player.connect(channel.id, { selfDeaf: true });
+    player.connect(channel!.id, { selfDeaf: true });
 
     message.guild?.me?.voice.setDeaf(true);
 
     return message.util?.send(
       new MessageEmbed()
         .setColor("#42f57e")
-        .setDescription(`Connected to \`${channel.name}\` successfully.`)
+        .setDescription(`Connected to \`${channel!.name}\` successfully.`)
     );
   }
 }

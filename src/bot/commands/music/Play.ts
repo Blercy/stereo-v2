@@ -1,5 +1,5 @@
 import { Command, Argument } from "discord-akairo";
-import { Message, MessageEmbed } from "discord.js";
+import { Message, MessageEmbed, VoiceChannel } from "discord.js";
 
 import { PublicCommand } from "@core";
 import { parse } from "url";
@@ -51,26 +51,41 @@ export default class PlayCommand extends Command {
     message: Message,
     { song, type }: { song: string; type: string }
   ) {
-    const { channel } = message.member?.voice!;
-    if (!channel)
+    const vclock: string = this.client.settings.get(message.guild, "vclock");
+
+    let { channel } = message.member?.voice!;
+
+    if (vclock)
+      channel = message.guild?.channels.cache.get(vclock) as VoiceChannel;
+    if ((vclock && !channel?.members.has(message.author.id)) || !channel)
       return message.util?.send(
         new MessageEmbed()
           .setColor("#f55e53")
-          .setDescription(`Please join a voice channel.`)
+          .setDescription(
+            vclock
+              ? `Please join \`${
+                  message.guild!.channels.cache.get(vclock)!.name
+                }\``
+              : `Please join a voice channel.`
+          )
       );
 
     if (
-      !channel.joinable ||
-      !channel.permissionsFor(this.client.user!)?.has(["SPEAK", "CONNECT"])
+      !channel!.joinable ||
+      !channel!.permissionsFor(this.client.user!)?.has(["SPEAK", "CONNECT"])
     )
       return message.util?.send(
         new MessageEmbed()
           .setColor("#f55e53")
-          .setDescription(`Please join a voice channel I can join.`)
+          .setDescription(
+            vclock
+              ? `Seems that the voice channel set for Voice Channel lock is inaccessable.`
+              : `Please join a voice channel I can join.`
+          )
       );
 
     let player = this.client.lavalink.players.get(message.guild!.id);
-    if (player && player.channel !== channel.id)
+    if (player && player.channel !== channel!.id)
       return message.util?.send(
         new MessageEmbed()
           .setColor("#f55e53")
@@ -124,7 +139,7 @@ export default class PlayCommand extends Command {
             ])
         );
 
-        if (!player.connected) player.connect(channel.id, { selfDeaf: true });
+        if (!player.connected) player.connect(channel!.id, { selfDeaf: true });
         if (!player.playing && !player.paused)
           await player.queue.start(message);
 
@@ -155,7 +170,7 @@ export default class PlayCommand extends Command {
           .setDescription(`[${data.data.name}](${data.data.url})`)
       );
 
-      if (!player.connected) player.connect(channel.id, { selfDeaf: true });
+      if (!player.connected) player.connect(channel!.id, { selfDeaf: true });
       if (!player.playing && !player.paused) await player.queue.start(message);
 
       return;
@@ -207,7 +222,7 @@ export default class PlayCommand extends Command {
             .setFooter(`Enqueued Track`)
         );
 
-        if (!player.connected) player.connect(channel.id, { selfDeaf: true });
+        if (!player.connected) player.connect(channel!.id, { selfDeaf: true });
         if (!player.playing && !player.paused)
           await player.queue.start(message);
 
@@ -304,7 +319,7 @@ export default class PlayCommand extends Command {
             );
 
             if (!player?.connected)
-              player?.connect(channel.id, { selfDeaf: true });
+              player?.connect(channel!.id, { selfDeaf: true });
             if (!player?.playing && !player?.paused)
               await player?.queue.start(message);
 
@@ -339,7 +354,7 @@ export default class PlayCommand extends Command {
             .setFooter(`Enqueued Playlist (${tracks.length})`)
         );
 
-        if (!player.connected) player.connect(channel.id, { selfDeaf: true });
+        if (!player.connected) player.connect(channel!.id, { selfDeaf: true });
         if (!player.playing && !player.paused)
           await player.queue.start(message);
 
