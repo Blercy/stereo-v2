@@ -1,0 +1,36 @@
+bot:
+  prefix:
+    - s!
+    - "stereo "
+  whitelist:
+    owners: []
+    guilds: []
+  dsn:
+
+apis:
+  spotify:
+    secret:
+    id:
+  playlists:
+  dbl:
+  vps:
+    key:
+    password:
+    svs:
+  youtube:
+  soundcloud:
+
+links:
+  github: https://github.com/Stereo-Developers/stereo/
+  discord: https://discord.gg/YEGDEuE
+  permissions: 36711424
+
+channels:
+  errors:
+  guild:
+
+nodes:
+  - id: Stereo
+    port: 2333
+    host: localhost
+    password: ""
