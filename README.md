@@ -1,3 +1,1 @@
-# Stereo
-
-Stereo's v2 code.
+<h1 align="center">Stereo</h1>
