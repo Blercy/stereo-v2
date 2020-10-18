@@ -9,9 +9,10 @@
   "private": false,
   "scripts": {
     "compile": "rm -rf build && tsc && clear",
-    "run": "yarn postinstall && yarn compile && npx prisma generate && clear && pm2 restart index && pm2 logs index",
+    "run": "yarn prepareStart && clear && pm2 restart index && pm2 logs index",
     "postinstall": "npx link-module-alias",
-    "test": "yarn postinstall && yarn compile && node ."
+    "prepareStart": "yarn postinstall && npx prisma generate && yarn compile",
+    "test": "yarn prepareStart && node ."
   },
   "_moduleAliases": {
     "@core": "build/core/index.js"
