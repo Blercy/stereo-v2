@@ -12,7 +12,7 @@ export default class DjRoleInhibitor extends Inhibitor {
       role &&
       !message.member?.roles.cache.has(role as string) &&
       cmd.categoryID === "music" &&
-      !["play", "nowplaying", "queue", "radio"].includes(cmd.id) &&
+      !["play", "nowplaying", "queue", "radio", "join"].includes(cmd.id) &&
       (!message.member?.permissions.has("ADMINISTRATOR", true) ||
         message.member?.voice.channel?.members.filter((m) => !m.user.bot)
           .size === 2)
