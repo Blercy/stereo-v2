@@ -5,6 +5,11 @@
   <a href="https://discord.gg/YEGDEuE"><img src="https://discordapp.com/api/guilds/727933082643988581/embed.png" /></a>
   <a href="https://github.com/Stereo-Developers/stereo/"><img src="https://img.shields.io/badge/version-2.0.0-blue.svg" /></a>
   <a href="https://github.com/Stereo-Developers/stereo/blob/main/LICENSE"><img src="https://img.shields.io/static/v1?label=license&message=MIT&color=blue" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/language-TypeScript-blue" /></a>
 </div>
 
 <h4 align="center">A now closed source music bot, written in TypeScript by aesthetical#2545</h4> 
+
+---
+
+> Licensed under MIT, all rights reserved
