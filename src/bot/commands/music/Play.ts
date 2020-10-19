@@ -92,8 +92,6 @@ export default class PlayCommand extends Command {
           .setDescription(`Please join my voice channel.`)
       );
 
-    if (!player) player = this.client.lavalink.create(message.guild!.id);
-
     // all of this hurts my fucking soul because its so shit and i know it
     const data = await this.parseSpotify(song);
     if (data) {
@@ -113,16 +111,12 @@ export default class PlayCommand extends Command {
       let successful = 0;
 
       if (Array.isArray(data)) {
+        if (!player) player = this.client.lavalink.create(message.guild!.id);
+
         for (const { name } of data) {
           const track = await this.client.lavalink.search(
             `ytsearch:${encodeURIComponent(name)}`
           );
-          if (["NO_MATCHES", "LOAD_FAILED"].includes(track.loadType)) {
-            if (!player.queue || !player.queue.current)
-              return this.client.lavalink.destroy(message.guild!.id);
-
-            return;
-          }
 
           player.queue.add(message.author.id, track.tracks[0].track);
           successful += 1;
@@ -150,15 +144,14 @@ export default class PlayCommand extends Command {
         `ytsearch:${encodeURIComponent(data.name)}`
       );
       if (["NO_MATCHES", "LOAD_FAILED"].includes(track.loadType)) {
-        if (!player || !player.queue || !player.queue.current)
-          await this.client.lavalink.destroy(message.guild!.id);
-
         return message.util?.send(
           new MessageEmbed()
             .setColor("#f55e53")
             .setDescription(`Could not successfully get spotify track.`)
         );
       }
+
+      if (!player) player = this.client.lavalink.create(message.guild!.id);
 
       player.queue.add(message.author.id, track.tracks[0].track);
 
@@ -204,6 +197,8 @@ export default class PlayCommand extends Command {
           .setColor("#f55e53")
           .setDescription(`I couldn't find anything for your query. Try again?`)
       );
+
+    if (!player) player = this.client.lavalink.create(message.guild!.id);
 
     switch (loadType) {
       case "TRACK_LOADED":
