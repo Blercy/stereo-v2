@@ -111,6 +111,7 @@ export class Stereo extends AkairoClient {
 
   public async run() {
     this.commands.useListenerHandler(this.events);
+    this.commands.useInhibitorHandler(this.inhibitors);
 
     this.events.setEmitters({
       commands: this.commands,

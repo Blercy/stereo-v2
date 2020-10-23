@@ -49,6 +49,8 @@ export default class HelpCommand extends Command {
               `[Top.gg](https://top.gg/bot/725808086933176410)`,
             ].join(" • ")
           )
+          .setFooter(`© ${this.client.user!.username}`)
+          .setTimestamp(Date.now())
       );
     }
 

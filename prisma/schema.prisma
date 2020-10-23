@@ -16,12 +16,3 @@ model Settings {
 
   @@map("settings")
 }
-
-model User {
-  id        String @id
-  commands  Int    @default(0)
-  songs     Int    @default(0)
-  playlists Json[]
-
-  @@map("user")
-}
