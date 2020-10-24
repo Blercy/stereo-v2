@@ -16,7 +16,7 @@ export default class ReadyEvent extends Listener {
         shardID: shard,
         status: "dnd",
         activity: {
-          name: `sc!help | Shard ${shard}/${this.client.shard!.count}`,
+          name: `s!help | Shard ${shard}/${this.client.shard!.count}`,
           type: "LISTENING",
         },
       });
