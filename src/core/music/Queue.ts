@@ -21,6 +21,7 @@ export class Queue {
 
   public loop = "none";
   public bass = 0;
+  public stereoSide: "left" | "right" | "none" = "none";
   public filter: Filters = {
     type: "none",
     filters: {},
